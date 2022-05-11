@@ -1,6 +1,16 @@
 version: "3"
 
 services:
+  db-mysql:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - 3306:3306
+    networks:
+      - springboot-mysql-net
   test-app:
     restart: always
     build:
@@ -10,3 +20,14 @@ services:
       - 8080:8080
     expose:
       - 8080
+    depends_on:
+      - db-mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/mydb?useSSL=false&allowPublicKeyRetrievla=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1234
+    networks:
+      - springboot-mysql-net
+
+networks:
+  springboot-mysql-net:
