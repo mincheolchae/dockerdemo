@@ -1,4 +1,4 @@
-package com.dockerdemo;
+package com.dockerdemo.test;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,5 +19,11 @@ public class HomeController {
 	public String home() {
 		logger.info( "here i am.." );
 		return "index";
+	}
+
+	@GetMapping("/test")
+	public String test() {
+		logger.info( "test mapping.." );
+		return "test";
 	}
 }
