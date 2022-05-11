@@ -27,13 +27,13 @@ public class HomeController {
 	@GetMapping("/")
 	public String home() {
 		logger.info( "here i am.." );
-		return "/index";
+		return "index";
 	}
 
-	@GetMapping("/test")
+	@GetMapping("/tt")
 	public String test() {
 		logger.info( "test mapping.." );
-		return "/test";
+		return "test";
 	}
 
 	@ResponseBody
