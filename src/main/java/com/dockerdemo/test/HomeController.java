@@ -46,6 +46,7 @@ public class HomeController {
 
 	@GetMapping("/form")
 	public String form() {
+		logger.info( "here's FORM!" );
 		return "/form";
 	}
 
@@ -57,6 +58,7 @@ public class HomeController {
 
 	@GetMapping( "/list" )
 	public String list( Model model ) {
+		logger.info( "here's LIST" );
 		List<Contents> contents = new ArrayList<>();
 		Iterable<Contents> contentsIterable = contentsRepository.findAll();
 		contentsIterable.forEach( contents::add );
