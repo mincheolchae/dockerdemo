@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Slf4j
 @Controller
@@ -26,4 +27,12 @@ public class HomeController {
 		logger.info( "test mapping.." );
 		return "test";
 	}
+
+	@ResponseBody
+	@GetMapping("/sample")
+	public String sample() {
+		logger.info( "sampling.." );
+		return "SAMPLE!!";
+	}
+
 }
